@@ -10,7 +10,7 @@ type Post = {
 function App() {
   const [posts, setPosts] = useState<Post[]>([])
   const [error, setError] = useState<string | null>(null)
- 
+
    useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/posts')
       .then(response => {
@@ -26,12 +26,14 @@ function App() {
       .catch(err => {
         setError(err.message)
       })
+      
   }, [])
   
   if (error) return <p style={{ color: 'red' }}>Error: {error}</p>
 
   return (
-    <>  
+    <>
+      <div>
       <h1>Blog Post</h1>
       {posts.map((post) => (
         <div key={post.id} style={{ marginBottom: '2rem', borderBottom: '1px solid #ccc', paddingBottom: '1rem' }}>
@@ -39,6 +41,7 @@ function App() {
           <p>{post.body}</p>
         </div>
       ))}
+    </div>
      </>
   )
 }
