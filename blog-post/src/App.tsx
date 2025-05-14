@@ -1,5 +1,6 @@
 import {useEffect, useState } from 'react'
 import './App.css'
+// import   from 'blog-post\src\index.css'
 
 type Post = {
   id: number
